@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Magebit_PageListWidget" />
+    <module name="Magebit_PageListWidget">
+        <!--https://devdocs.magento.com/guides/v2.4/ext-best-practices/tutorials/custom-widget.html -->
+        <sequence>
+            <module name="Magento_Widget" />
+            <!--TODO depends -->
+        </sequence>
+    </module>
 </config>

@@ -1,8 +1,12 @@
 <?php
-use Magento\Framework\View\Element\Template;
-/** @var Template $block */
+/** \Magebit\PageListWidget\Block\Widget\PageList $block */
 ?>
-<h1>Navigation</h1>
+<h2>Title: <?= $block->escapeHtml($block->getData('title')) ?></h2>
+
+<h3>Selected Display mode: <?= $block->escapeHtml($block->getData('display_mode')) ?></h3>
+
+<h3>Selected Optons:</h3>
 <ul>
-    <li><a href="/">Link</a></li>
+    <li><a href=""><?= $block->escapeHtml($block->getData('show_pages')) ?></a></li>
 </ul>
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="magebit_pagelistwidget" class="Magebit\PageListWidget\Block\Widget\PageList" is_email_compatible="true">
+        <label translate="true">CMS page list</label>
+        <description translate="true">CMS page list - custom</description>
+        <parameters>
+
+            <!-- title -->
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+            </parameter>
+
+            <!-- Display mode. All/Specific -->
+            <parameter name="display_mode" xsi:type="select" required="true" visible="true">
+
+                <label translate="true">Display Mode</label>
+                <options>
+                    <option name="default" value="all_pages" selected="true">
+                        <label translate="true">All pages</label>
+                    </option>
+                    <option name="item" value="specific_pages">
+                        <label translate="true">Specific Pages</label>
+                    </option>
+                </options>
+            </parameter>
+
+
+            <!-- Selected pages. hidden unless specific pages selected -->
+            <parameter name="show_pages" xsi:type="multiselect" required="true" visible="true"
+                       source_model="Magento\Cms\Model\Config\Source\Page">
+                <label translate="true">Selected pages</label>
+                <depends>
+                    <parameter name="display_mode" value="specific_pages" />
+                </depends>
+            </parameter>
+
+        </parameters>
+    </widget>
+</widgets>
