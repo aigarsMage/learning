@@ -26,12 +26,14 @@ class PageList extends Template implements BlockInterface
     private $searchCriteriaBuilder;
     protected $_storeManager;
 
+
     /**
      * PageList constructor.
      * source - https://www.rakeshjesadiya.com/get-cms-page-collection-magento-2/
      * @param Template\Context $context
      * @param \Magento\Cms\Api\PageRepositoryInterface $pageRepositoryInterface
      * @param \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param StoreManagerInterface $storeManager
      * @param array $data
      */
     public function __construct(
@@ -47,9 +49,11 @@ class PageList extends Template implements BlockInterface
         $this->_storeManager = $storeManager;
     }
 
+
     /**
      * @return \Magento\Cms\Api\Data\PageInterface[]
      * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getPages() {
 
