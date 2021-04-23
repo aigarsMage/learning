@@ -66,8 +66,7 @@ class PageList extends Template implements BlockInterface
         $searchCriteria->addFilter('store_id', [0, $this->_storeManager->getStore()->getId()] , 'in');
 
         try {
-            $pages = $this->pageRepositoryInterface->getList($searchCriteria->create())->getItems();
-            return $pages;
+            return $this->pageRepositoryInterface->getList($searchCriteria->create())->getItems();
         } catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
