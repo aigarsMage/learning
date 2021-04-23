@@ -1,12 +1,12 @@
 <?php
 /** \Magebit\PageListWidget\Block\Widget\PageList $block */
 ?>
-<h2>Title: <?= $block->escapeHtml($block->getData('title')) ?></h2>
+<h2><?= $block->escapeHtml($block->getData('title')) ?></h2>
 
-<h3>Selected Display mode: <?= $block->escapeHtml($block->getData('display_mode')) ?></h3>
 
-<h3>Selected Optons:</h3>
+<!--$this/$block - what is the difference? TODO-->
 <ul>
-    <li><a href=""><?= $block->escapeHtml($block->getData('show_pages')) ?></a></li>
+    <?php foreach($this->getPages() as $page) : ?>
+    <li><a href="<?= '/' . $page->getIdentifier() ?>"><?=$page->getTitle() ?></a></li>
+    <?php endforeach; ?>
 </ul>
-

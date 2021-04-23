@@ -33,7 +33,7 @@
 
 
             <!-- Selected pages. hidden unless specific pages selected -->
-            <parameter name="show_pages" xsi:type="multiselect" required="true" visible="true"
+            <parameter name="selected_pages" xsi:type="multiselect" required="true" visible="true"
                        source_model="Magento\Cms\Model\Config\Source\Page">
                 <label translate="true">Selected pages</label>
                 <depends>
