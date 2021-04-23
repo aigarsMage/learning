@@ -9,7 +9,7 @@
     <head>
         <link src="Magento_Checkout::js/view/configure/product-customer-data.js"/>
     </head>
-    <update handle="catalog_product_view"/>
+    <update handle="catalog_product_view_type_simple.xml"/>
     <body>
         <referenceBlock name="head.components">
             <block class="Magento\Framework\View\Element\Js\Components" name="checkout_cart_configure_head_components" template="Magento_Checkout::js/components.phtml"/>

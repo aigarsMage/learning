@@ -11,13 +11,25 @@ namespace Magebit\PageListWidget\Block\Widget;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
+use Magento\Store\Model\StoreManagerInterface;
 
 class PageList extends Template implements BlockInterface
 {
+    protected $_template = 'Magebit_PageListWidget::page-list.phtml';
+    public const TITLE = 'title';
+    public const DISPLAY_MODE = 'display_mode';
+    public const SELECTED_PAGES = 'selected_pages';
+    public const SPECIFIC_PAGES = 'specific_pages';
+    public const FILTER_ON = 'identifier';
+
+    private $pageRepositoryInterface;
+    private $searchCriteriaBuilder;
+    protected $_storeManager;
+
     /**
-     * source - https://www.rakeshjesadiya.com/get-cms-page-collection-magento-2/
      * PageList constructor.
-     * @param \Magento\Framework\View\Element\Template\Context $context
+     * source - https://www.rakeshjesadiya.com/get-cms-page-collection-magento-2/
+     * @param Template\Context $context
      * @param \Magento\Cms\Api\PageRepositoryInterface $pageRepositoryInterface
      * @param \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder
      * @param array $data
@@ -26,11 +38,13 @@ class PageList extends Template implements BlockInterface
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Cms\Api\PageRepositoryInterface $pageRepositoryInterface,
         \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
         array $data = []
     ) {
+        parent::__construct($context, $data);
         $this->pageRepositoryInterface = $pageRepositoryInterface;
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
-        parent::__construct($context, $data);
+        $this->_storeManager = $storeManager;
     }
 
     /**
@@ -39,25 +53,25 @@ class PageList extends Template implements BlockInterface
      */
     public function getPages() {
 
-        if($this->getData('display_mode') === 'specific_pages') {
-            $selectedPages = $this->getData('selected_pages');
-            //https://webkul.com/blog/how-to-use-search-criteria-in-custom-module/
-            $searchCriteria = $this->searchCriteriaBuilder->addFilter('identifier', $selectedPages, 'in')->create();
+        $searchCriteria = $this->searchCriteriaBuilder;
 
-        } else {
-            $searchCriteria = $this->searchCriteriaBuilder->create();
+        if ($this->getData(self::DISPLAY_MODE) === self::SPECIFIC_PAGES && strlen($this->getData(self::SELECTED_PAGES))) {
+            $searchCriteria->addFilter(self::FILTER_ON, $this->getData(self::SELECTED_PAGES), 'in');
         }
 
-        $pages = $this->pageRepositoryInterface->getList($searchCriteria)->getItems();
-        return $pages;
+//        TODO check store_id
+        $storeId = $this->_storeManager->getStore()->getId();
+        $searchCriteria->addFilter('store_id', '0,' . $storeId , 'in');
+        $searchCriteria = $searchCriteria->create();
+
+        try {
+            $pages = $this->pageRepositoryInterface->getList($searchCriteria)->getItems();
+            return $pages;
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+
+
     }
-
-
-    protected function _construct()
-    {
-        parent::_construct();
-        $this->setTemplate('page-list.phtml');
-    }
-
 
 }
