@@ -5,6 +5,7 @@
  * Date: 21.22.4
  * Time: 09:16
  */
+//testing ssh
 
 namespace Magebit\PageListWidget\Block\Widget;
 
@@ -52,7 +53,7 @@ class PageList extends Template implements BlockInterface
         return $pages;
     }
 
-    
+
     protected function _construct()
     {
         parent::_construct();
