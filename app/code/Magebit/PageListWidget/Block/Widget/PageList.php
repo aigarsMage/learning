@@ -17,7 +17,7 @@ class PageList extends Template implements BlockInterface
     /**
      * source - https://www.rakeshjesadiya.com/get-cms-page-collection-magento-2/
      * PageList constructor.
-     * @param Template\Context $context
+     * @param \Magento\Framework\View\Element\Template\Context $context
      * @param \Magento\Cms\Api\PageRepositoryInterface $pageRepositoryInterface
      * @param \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder
      * @param array $data
@@ -41,7 +41,6 @@ class PageList extends Template implements BlockInterface
 
         if($this->getData('display_mode') === 'specific_pages') {
             $selectedPages = $this->getData('selected_pages');
-
             //https://webkul.com/blog/how-to-use-search-criteria-in-custom-module/
             $searchCriteria = $this->searchCriteriaBuilder->addFilter('identifier', $selectedPages, 'in')->create();
 
