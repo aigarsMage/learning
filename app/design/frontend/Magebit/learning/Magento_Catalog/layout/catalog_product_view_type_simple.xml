@@ -4,6 +4,11 @@
         <move element="page.main.title" destination="product.info.main" before="-"/>
         <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>
         <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
-        <!--<move element="product.info.social" destination="product.info.main" before="product.info.price"/>-->
+        <move element="product.info.upsell" destination="product.info.main" after="product.info.form.content"/>
+        <move element="catalog.product.related" destination="product.info.media" after="product.info.main" />
+        <referenceBlock name="product.info.social" remove="true"/>
+        <referenceBlock name="product.info.details" remove="true" />
+        <!--<referenceBlock name="product.attributes" remove="true" />-->
+        <!--/var/www/learning/public/app/code/Magento/Catalog/view/frontend/layout/catalog_product_view.xml-->
     </body>
 </page>

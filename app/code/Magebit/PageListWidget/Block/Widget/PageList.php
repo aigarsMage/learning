@@ -63,7 +63,7 @@ class PageList extends Template implements BlockInterface
             $searchCriteria->addFilter(self::FILTER_ON, $this->getData(self::SELECTED_PAGES), 'in');
         }
 
-        $searchCriteria->addFilter('store_id', [0, $this->_storeManager->getStore()->getId()] , 'in');
+        $searchCriteria->addFilter('store_id', [0, $this->storeManager->getStore()->getId()] , 'in');
 
         try {
             return $this->pageRepositoryInterface->getList($searchCriteria->create())->getItems();
