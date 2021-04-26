@@ -16,10 +16,8 @@
 //  ---------------------------------------------
 
 @import 'product/_buttons_extend.less';
+@import 'product/_colors.less';
 
-//  Fonts
-@icons__font-path: '@{baseDir}fonts/Luma-Icons';
-@icons__font-name: 'luma-icons';
 
 //  Color nesting
 @panel__background-color: @color-gray-light0;
@@ -121,8 +119,8 @@
 @button__active__background: @color-gray-darken1;
 
 //  Primary button
-@button-primary__background: #FF5501;
-@button-primary__hover__background: darken(#FF5501, 25%);
+@button-primary__background: @button-color;
+@button-primary__hover__background: darken(@button-color, 25%);
 
 @button-primary__hover__color: @color-white;
 @button-primary__active__background: @link__hover__color;
@@ -304,10 +302,75 @@
 
 
 /////////////////////////// custom stuff
-.box-tocart {
-  .action.tocart {
-    margin-bottom: 0;
-    margin-right: 1%;
-    width: 100%;
+
+
+#page-product-simple {
+
+  //  Fonts
+  @icons__font-path: '@{baseDir}fonts/OpenSans-Regular';
+  @icons__font-name: 'open-sans';
+
+
+  .product-info-main {
+    width: 560px;
   }
+
+  .product.media {
+    width: 50%;
+  }
+
+  .page-title {
+    text-align: left;
+    font: normal normal 600 32px/43px Open Sans;
+    letter-spacing: 0px;
+  }
+
+
+  .product-reviews-summary {
+    .reviews-actions {
+      font-size: 12px;
+    }
+  }
+
+  .rating-summary {
+    margin: 0;
+  }
+
+  .action.view {
+    margin: 0 20px 0 0;
+  }
+
+  .product-reviews-summary .reviews-actions a:not(:last-child) {
+    text-decoration: underline;
+    color: @button-color;
+
+  }
+
+  .action.add {
+    color: black;
+    padding: 6px 10px 5px 10px;
+    border: 1px solid #333333;
+    border-radius: 2px;
+    opacity: 1;
+  }
+
+  .product-info-stock-sku {
+    padding-left: 16px;
+    text-align: left;
+  }
+
+  .price {
+    text-align: left;
+    font: normal normal 600 32px/43px Open Sans;
+    letter-spacing: 0px;
+    color: #575757;
+  }
+  
+  .box-tocart {
+    .action.tocart {
+      width: 100%;
+    }
+  }
+
 }
+
