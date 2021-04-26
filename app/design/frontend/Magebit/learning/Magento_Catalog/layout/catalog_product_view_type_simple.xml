@@ -12,7 +12,32 @@
             <!--<referenceBlock name="product.info.sku" remove="true" />-->
         <!--</referenceBlock>-->
 
+
+        <!--<referenceContainer name="product.info.main">-->
+            <!--<block class="Magento\Catalog\Block\Product\View" name="product.attribute.custom" template="Magento_Catalog::product/list/attribute_description.phtml">-->
+                <!--<arguments>-->
+                    <!--<argument name="title" translate="true" xsi:type="string">Your Custom Attribute Title</argument>-->
+                <!--</arguments>-->
+            <!--</block>-->
+        <!--</referenceContainer>-->
+
+        <referenceContainer name="product.info.main">
+            <container name="product.attribute.description" label="Product auxiliary info" htmlTag="div" htmlClass="product-attribute-description" after="product.info.price">
+                <block class="Magento\Catalog\Block\Product\View\Description" name="product.attribute.custom" template="Magento_Catalog::product/list/attribute_description.phtml" >
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getShortDescription</argument>
+                        <argument name="at_code" xsi:type="string">short_description</argument>
+                        <!--<argument name="css_class" xsi:type="string">product-attribute-description</argument>-->
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="title" translate="true" xsi:type="string">Overview</argument>
+                        <argument name="add_attribute" xsi:type="string">itemprop="description"</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
         <referenceBlock name="product.info.social" remove="true"/>
+        <!--<referenceBlock name="reviews.tab" remove="true" />-->
         <referenceBlock name="product.info.details" remove="true" />
         <!--<referenceBlock name="product.attributes" remove="true" />-->
         <!--/var/www/learning/public/app/code/Magento/Catalog/view/frontend/layout/catalog_product_view.xml-->
