@@ -311,10 +311,12 @@
   @icons__font-name: 'open-sans';
 
 
+  // right col width
   .product-info-main {
     width: 560px;
   }
 
+  // image container width
   .product.media {
     width: 50%;
   }
@@ -332,20 +334,24 @@
     }
   }
 
+  // rating stars
   .rating-summary {
     margin: 0;
   }
 
+  // reviews link margin
   .action.view {
     margin: 0 20px 0 0;
   }
 
+  // reviews link
   .product-reviews-summary .reviews-actions a:not(:last-child) {
     text-decoration: underline;
     color: @button-color;
 
   }
 
+  // Add your review box
   .action.add {
     color: black;
     padding: 6px 10px 5px 10px;
@@ -354,6 +360,7 @@
     opacity: 1;
   }
 
+  // product in stock/sku info
   .product-info-stock-sku {
     padding-left: 16px;
     text-align: left;
@@ -369,14 +376,16 @@
   .product-info-price {
     border: none;
   }
-  
+
+
+  // add to cart CTA
   .box-tocart {
     .action.tocart {
       width: 100%;
     }
   }
 
-
+  // custom attributes box
   .product-attribute-description {
     background-color: #F9F9F9;
     width:100%;
@@ -389,6 +398,53 @@
     }
 
   }
+
+}
+
+
+// Counter styles. Not sure why they dont work inside the age-product-simple class
+.custom-counter-input-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .custom-counter-input-group__input, .custom-counter-input-group__button {
+    border: 1px solid #C2C2C2;
+    height: 52px;
+    margin: 0;
+    padding:0;
+    text-align: center;
+  }
+
+  .custom-counter-input-group__input {
+    width: 86px;
+    border-left: 0px;
+    border-right: 0px;
+
+    // doesnt work
+    &:focus{
+      border: 0px;
+      outline: none;
+    }
+
+  }
+
+
+  .custom-counter-input-group__button,.custom-counter-input-group__addon {
+    background-color: #ffffff;
+    width: 52px;
+  }
+
+  .custom-counter-input-group__button--decrease {
+    border-radius: 2px 0px 0px 2px;
+    background-image: url('@{baseDir}images/decrease.svg'); // todo redefine basedir
+  }
+
+  .custom-counter-input-group__button--increase {
+    border-radius: 0px 2px 2px 0px;
+    background-image: url('@{baseDir}images/increase.svg');
+  }
+
 
 }
 

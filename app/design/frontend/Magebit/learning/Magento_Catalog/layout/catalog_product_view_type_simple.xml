@@ -36,6 +36,11 @@
             </container>
         </referenceContainer>
 
+
+        <!--<container name="product.info.form.content" as="product_info_form_content">-->
+            <!--<block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart" as="addtocart" template="Magento_Catalog::product/list/custom_addtocart.phtml"/>-->
+        <!--</container>-->
+
         <referenceBlock name="product.info.social" remove="true"/>
         <!--<referenceBlock name="reviews.tab" remove="true" />-->
         <referenceBlock name="product.info.details" remove="true" />

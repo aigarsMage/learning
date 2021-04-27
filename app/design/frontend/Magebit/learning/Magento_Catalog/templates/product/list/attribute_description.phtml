@@ -1,31 +1,21 @@
 <?php
 
 $allAttributes = $block->getAdditionalData();
+$attributes = ['dimensions', 'color', 'material'];
 
 //echo '<pre>';
-//echo var_dump($allAttributes);
+//echo var_dump($_product);
 //exit;
-
-$attributes = ['dimensions', 'color', 'material']; // cant find dimensions?
-
-foreach ($attributes as $attribute) {
-
-    if(!empty($allAttributes[$attribute])) {
-        echo ($allAttributes[$attribute]['label']).'-'.($allAttributes[$attribute]['value']) . '<br>';
-    }
-
-    //add dimensions attribute.
-
-}
 
 
 ?>
 
 <ul>
-    <li>Test item 1</li>
-    <li>Test item 2</li>
-    <li>Test item 3</li>
+    <?php foreach ($attributes as $attribute) : ?>
+    <li><strong><?=$allAttributes[$attribute]['label'];?>: </strong><?=$allAttributes[$attribute]['value'];?></li>
+    <?php endforeach; ?>
+    <li style="color:red;">TODO if not exist</li>
 </ul>
 
 
-<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+<p style="color:red;">TODO With the Fusion Backpack strapped on, every trek is an adventure - even a bus ride to work.</p>
