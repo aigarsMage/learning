@@ -311,14 +311,31 @@
   @icons__font-name: 'open-sans';
 
 
+
+  // reviews
+  .action.view {
+    text-decoration: underline;
+    color: @button-color;
+  }
+
   // right col width
   .product-info-main {
-    width: 560px;
+
+    width: 45%;
+    max-width: 560px;
+
+  }
+
+  // hacky media query
+  @media (max-width: 768px)  {
+    .product-info-main {
+      width: 100%;
+    }
   }
 
   // image container width
   .product.media {
-    width: 50%;
+    width: 55%;
   }
 
   .page-title {
@@ -344,11 +361,6 @@
     margin: 0 20px 0 0;
   }
 
-  // reviews link
-  .product-reviews-summary .reviews-actions a:not(:last-child) {
-    text-decoration: underline;
-    color: @button-color;
-  }
 
   // Add your review box
   .action.add {
@@ -392,27 +404,160 @@
     width:100%;
     max-width: 560px;
     //height:148px; //to change
-    padding: 20px;
+    padding: 10px 20px;
     box-sizing: border-box;
 
     .product.attribute.overview {
       font-size: 12px;
+      margin-top:0;
     }
 
     ul {
       padding-left: 20px;
       font-size: 14px;
+      margin:0;
     }
 
   }
 
+
+  // IN STOCK
+
+  .stock-status-group {
+    display: flex;
+    flex-direction: row;
+    padding-left:10px;
+  }
+
+  .stock.remaining {
+    padding-left:5px;
+  }
+
+  .stock.available {
+    color: #575757;
+    position:relative;
+
+    &::before {
+      content: "";
+      height: 8px;
+      width: 11px;
+      display: inline-block;
+      background-image: url('../images/checkmark.svg');
+      background-repeat: no-repeat;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  // upsell
+
+  .block.upsell {
+
+    .block-title.title {
+      border-bottom: 1px solid #C2C2C2;
+      padding-bottom:8px;
+      margin:0;
+    }
+
+    .products.wrapper.grid.products-grid.products-upsell {
+      margin:0;
+    }
+
+    .products.list.items.product-items {
+      padding:0;
+      margin:0;
+    }
+
+    .item.product.product-item {
+      width: 100%;
+      margin-bottom:170px; //allignment hack
+
+      .product-item-info {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        &:hover{
+          box-shadow: none;
+          border: 0;
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      .product.details.product-item-details {
+        padding-top: 10px;
+        padding-left:10px;
+      }
+
+      .product-item-link {
+        font: normal normal 600 16px/22px Open Sans;
+      }
+
+      .product-reviews-summary.short {
+        margin-bottom: 20px;
+      }
+
+      .price {
+        font: normal normal 600 18px/24px Open Sans;
+      }
+
+      .button-container{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex: 1;
+      }
+
+      .button.product-upsell-view {
+        text-decoration: none;
+        font-size:14px;
+        background-color: #333333;
+        color:white;
+        border-radius: 2px;
+        width: 109px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  // Related
+  .block.related {
+
+    .block-title.title {
+      margin-bottom:20px;
+
+      #block-related-heading {
+        font: normal normal 600 24px/33px Open Sans;
+      }
+    }
+
+    .block-content.content {
+      border-top: 1px solid #C2C2C2;
+    }
+  }
+
 }
 
-// Counter styles. Not sure why they dont work inside the age-product-simple class
+
+
+// qty block
+
+#custom-qty {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+// Counter styles. Not sure why they dont work inside the page-product-simple class
 .custom-counter-input-group {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: fit-content;
 
   .custom-counter-input-group__input, .custom-counter-input-group__button {
     border: 1px solid #C2C2C2;
@@ -455,24 +600,4 @@
 
 }
 
-// IN STOCK
-
-.stock.available, .stock.remaining{
-  display: inline-block;
-}
-
-.stock.available {
-  color: #575757;
-
-
-  &::before {
-    content: "...";
-    background-image: url('../images/checkmark.svg');
-    background-repeat: no-repeat;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 8px;
-    width: 11px;
-  }
-}
 

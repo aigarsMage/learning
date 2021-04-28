@@ -6,8 +6,8 @@
         <move element="page.main.title" destination="product.info.main" before="-"/>
         <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>
         <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
-        <move element="product.info.upsell" destination="product.info.main" after="product.info.form.content"/>
-        <move element="catalog.product.related" destination="product.info.media" after="product.info.main" />
+        <move element="product.info.upsell" destination="product.info.main" after="product.info.addtocart"/>
+        <move element="catalog.product.related" destination="content" after="product.info.media" />
         <move element="product.info.overview" destination="product.attribute.description" after="product.attribute.custom" />
 
 
@@ -31,12 +31,12 @@
 
         </referenceContainer>
 
-        <referenceContainer name="product.info.form.content">
-            <block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart" template="Magento_Catalog::product/view/addtocart.phtml">
-                <block class="Magento\Catalog\Block\Product\View\Type\Simple" name="product.info.options.default.simple" template="Magento_Catalog::product/view/options/type/default.phtml"/>
-            <!--???? ka so vareja zinat? -->
-            </block>
-        </referenceContainer>
+        <!--<referenceContainer name="product.info.form.content">-->
+            <!--<block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart" template="Magento_Catalog::product/view/addtocart.phtml">-->
+                <!--<block class="Magento\Catalog\Block\Product\View\Type\Simple" name="product.info.options.default.simple" template="Magento_Catalog::product/view/options/type/default.phtml"/>-->
+            <!--&lt;!&ndash;???? ka so vareja zinat? &ndash;&gt;-->
+            <!--</block>-->
+        <!--</referenceContainer>-->
 
         <referenceBlock name="product.info.social" remove="true"/>
         <referenceBlock name="product.info.details" remove="true" />

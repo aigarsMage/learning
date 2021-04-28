@@ -33,7 +33,31 @@
                             }
                         </script>
 
-                        <div>in stock info from addtocart.phtml</div>
+
+                        <!--https://magento.stackexchange.com/questions/302337/magento-2-data-product-getqty-returns-0 -->
+                        <!--not recommended-->
+                        <?php
+                        $objectManager =  \Magento\Framework\App\ObjectManager::getInstance();
+                        $stockItemRepository = $objectManager->get('\Magento\CatalogInventory\Model\Stock\StockItemRepository');
+                        $productStockData = $stockItemRepository->get($_product->getId());
+                        $qty = $productStockData->getQty();
+                        ?>
+
+
+                        <?php if ($block->displayProductStockStatus()) :?>
+                            <div class="stock-status-group">
+                                <?php if ($_product->isAvailable()) :?>
+                                    <div class="stock available" title="<?= $block->escapeHtmlAttr(__('Availability')) ?>">
+                                        <span><?= $block->escapeHtml(__('In stock')) ?></span>
+                                    </div>
+                                    <div class="stock remaining"> <?= $qty;?> items available (addtocart.phtml)</div>
+                                <?php else :?>
+                                <div class="stock unavailable" title="<?= $block->escapeHtmlAttr(__('Availability')) ?>">
+                                    <span><?= $block->escapeHtml(__('Out of stock')) ?></span>
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             <?php endif; ?>
