@@ -1,21 +1,35 @@
 <?php
 
 $allAttributes = $block->getAdditionalData();
-$attributes = ['dimensions', 'color', 'material'];
+$attributes = ['dimensions', 'material', 'color'];
+$finalAttributes = [];
 
-//echo '<pre>';
-//echo var_dump($_product);
-//exit;
+// TODO this needs to be in viewmodel?
+foreach($attributes as $attribute)  {
+    if (array_key_exists($attribute,$allAttributes))
+    {
+        $finalAttributes[$attribute] = $allAttributes[$attribute];
+        unset($allAttributes[$attribute]);
+        $attributes = array_diff($attributes, array($attribute));
+    }
+};
 
+
+if (count($allAttributes) >= count($attributes) && count($allAttributes) > 0) {
+
+    for ($i = 0; $i < count($attributes); $i++) {
+
+        $tempAttribute = current($allAttributes);
+        $finalAttributes[$tempAttribute['label']] = $tempAttribute;
+        unset($allAttributes[$tempAttribute['label']]);
+    }
+}
 
 ?>
 
 <ul>
-    <?php foreach ($attributes as $attribute) : ?>
-    <li><strong><?=$allAttributes[$attribute]['label'];?>: </strong><?=$allAttributes[$attribute]['value'];?></li>
+    <?php foreach ($finalAttributes as $attribute) : ?>
+
+            <li><strong><?=$attribute['label'];?>: </strong><?=$attribute['value'];?></li>
     <?php endforeach; ?>
-    <li style="color:red;">TODO if not exist</li>
 </ul>
-
-
-<p style="color:red;">TODO With the Fusion Backpack strapped on, every trek is an adventure - even a bus ride to work.</p>

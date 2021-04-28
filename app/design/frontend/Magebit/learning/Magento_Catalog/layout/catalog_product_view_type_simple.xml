@@ -8,22 +8,15 @@
         <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
         <move element="product.info.upsell" destination="product.info.main" after="product.info.form.content"/>
         <move element="catalog.product.related" destination="product.info.media" after="product.info.main" />
-        <!--<referenceBlock name="product.info.stock.sku">-->
-            <!--<referenceBlock name="product.info.sku" remove="true" />-->
-        <!--</referenceBlock>-->
+        <move element="product.info.overview" destination="product.attribute.description" after="product.attribute.custom" />
 
 
-        <!--<referenceContainer name="product.info.main">-->
-            <!--<block class="Magento\Catalog\Block\Product\View" name="product.attribute.custom" template="Magento_Catalog::product/list/attribute_description.phtml">-->
-                <!--<arguments>-->
-                    <!--<argument name="title" translate="true" xsi:type="string">Your Custom Attribute Title</argument>-->
-                <!--</arguments>-->
-            <!--</block>-->
-        <!--</referenceContainer>-->
+
 
         <referenceContainer name="product.info.main">
+
             <container name="product.attribute.description" label="Product auxiliary info" htmlTag="div" htmlClass="product-attribute-description" after="product.info.price">
-                <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attribute.custom" template="Magento_Catalog::product/list/attribute_description.phtml" >
+                <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attribute.custom" as="default" template="Magento_Catalog::product/list/attribute_description.phtml" >
                     <arguments>
                         <argument name="at_call" xsi:type="string">getShortDescription</argument>
                         <argument name="at_code" xsi:type="string">short_description</argument>
@@ -33,18 +26,21 @@
                         <argument name="add_attribute" xsi:type="string">itemprop="description"</argument>
                     </arguments>
                 </block>
+
             </container>
+
         </referenceContainer>
 
-
-        <!--<container name="product.info.form.content" as="product_info_form_content">-->
-            <!--<block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart" as="addtocart" template="Magento_Catalog::product/list/custom_addtocart.phtml"/>-->
-        <!--</container>-->
+        <referenceContainer name="product.info.form.content">
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart" template="Magento_Catalog::product/view/addtocart.phtml">
+                <block class="Magento\Catalog\Block\Product\View\Type\Simple" name="product.info.options.default.simple" template="Magento_Catalog::product/view/options/type/default.phtml"/>
+            <!--???? ka so vareja zinat? -->
+            </block>
+        </referenceContainer>
 
         <referenceBlock name="product.info.social" remove="true"/>
-        <!--<referenceBlock name="reviews.tab" remove="true" />-->
         <referenceBlock name="product.info.details" remove="true" />
-        <!--<referenceBlock name="product.attributes" remove="true" />-->
-        <!--/var/www/learning/public/app/code/Magento/Catalog/view/frontend/layout/catalog_product_view.xml-->
+        <referenceBlock name="product.info.type" remove="true" />
+
     </body>
 </page>

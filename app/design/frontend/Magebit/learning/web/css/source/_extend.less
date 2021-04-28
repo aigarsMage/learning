@@ -120,7 +120,7 @@
 
 //  Primary button
 @button-primary__background: @button-color;
-@button-primary__hover__background: darken(@button-color, 25%);
+@button-primary__hover__background: darken(@button-color, 5%);
 
 @button-primary__hover__color: @color-white;
 @button-primary__active__background: @link__hover__color;
@@ -348,7 +348,6 @@
   .product-reviews-summary .reviews-actions a:not(:last-child) {
     text-decoration: underline;
     color: @button-color;
-
   }
 
   // Add your review box
@@ -363,6 +362,7 @@
   // product in stock/sku info
   .product-info-stock-sku {
     padding-left: 16px;
+    padding-top: 10px;
     text-align: left;
   }
 
@@ -382,6 +382,7 @@
   .box-tocart {
     .action.tocart {
       width: 100%;
+      border:none;
     }
   }
 
@@ -389,8 +390,14 @@
   .product-attribute-description {
     background-color: #F9F9F9;
     width:100%;
+    max-width: 560px;
     //height:148px; //to change
     padding: 20px;
+    box-sizing: border-box;
+
+    .product.attribute.overview {
+      font-size: 12px;
+    }
 
     ul {
       padding-left: 20px;
@@ -400,7 +407,6 @@
   }
 
 }
-
 
 // Counter styles. Not sure why they dont work inside the age-product-simple class
 .custom-counter-input-group {
@@ -421,10 +427,8 @@
     border-left: 0px;
     border-right: 0px;
 
-    // doesnt work
     &:focus{
-      border: 0px;
-      outline: none;
+      box-shadow: none;
     }
 
   }
@@ -437,14 +441,38 @@
 
   .custom-counter-input-group__button--decrease {
     border-radius: 2px 0px 0px 2px;
-    background-image: url('@{baseDir}images/decrease.svg'); // todo redefine basedir
+    background-image: url('../images/decrease.svg'); // todo redefine basedir
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   .custom-counter-input-group__button--increase {
     border-radius: 0px 2px 2px 0px;
-    background-image: url('@{baseDir}images/increase.svg');
+    background-image: url('../images/increase.svg');
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
+}
 
+// IN STOCK
+
+.stock.available, .stock.remaining{
+  display: inline-block;
+}
+
+.stock.available {
+  color: #575757;
+
+
+  &::before {
+    content: "...";
+    background-image: url('../images/checkmark.svg');
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 8px;
+    width: 11px;
+  }
 }
 
