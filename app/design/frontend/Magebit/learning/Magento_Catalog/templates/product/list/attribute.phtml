@@ -25,11 +25,13 @@ if (count($allAttributes) >= count($attributes) && count($allAttributes) > 0) {
     }
 }
 
+//$attributeData = $block->getData('name');
+//$finalAttributes = $attributeData->getAttributes($allAttributes);
+
 ?>
 
 <ul>
     <?php foreach ($finalAttributes as $attribute) : ?>
-
             <li><strong><?=$attribute['label'];?>: </strong><?=$attribute['value'];?></li>
     <?php endforeach; ?>
 </ul>
