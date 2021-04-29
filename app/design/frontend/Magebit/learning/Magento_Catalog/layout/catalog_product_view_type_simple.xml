@@ -38,15 +38,26 @@
             <!--</block>-->
         <!--</referenceContainer>-->
 
+        <!--<referenceBlock name="breadcrumbs" template="Magento_Catalog::product/breadcrumbs.phtml">-->
+            <!--<arguments>-->
+                <!--<argument name="viewModel" xsi:type="object">Magebit\Learning\ViewModel\TestView</argument>-->
+            <!--</arguments>-->
+        <!--</referenceBlock>-->
+
 
         <!--/var/www/learning/public/app/code/Magento/Theme/view/frontend/layout/default.xml -->
         <referenceContainer name="footer-container">
             <referenceContainer name="footer">
-                <!--<block class="Magento\Framework\View\Element\Html\Links" name="footer_links">-->
+                <referenceBlock class="Magento\Framework\View\Element\Html\Links" name="footer_links">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">footer links</argument>
+                    </arguments>
+                </referenceBlock>
+                <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_custom" before="footer_links" template="Magento_Catalog::footer/footer.phtml">
                     <!--<arguments>-->
                         <!--<argument name="css_class" xsi:type="string">footer links</argument>-->
                     <!--</arguments>-->
-                <!--</block>-->
+                </block>
             </referenceContainer>
         </referenceContainer>
 
