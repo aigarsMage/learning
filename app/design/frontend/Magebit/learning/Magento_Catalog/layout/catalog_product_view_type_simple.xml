@@ -38,6 +38,18 @@
             <!--</block>-->
         <!--</referenceContainer>-->
 
+
+        <!--/var/www/learning/public/app/code/Magento/Theme/view/frontend/layout/default.xml -->
+        <referenceContainer name="footer-container">
+            <referenceContainer name="footer">
+                <!--<block class="Magento\Framework\View\Element\Html\Links" name="footer_links">-->
+                    <!--<arguments>-->
+                        <!--<argument name="css_class" xsi:type="string">footer links</argument>-->
+                    <!--</arguments>-->
+                <!--</block>-->
+            </referenceContainer>
+        </referenceContainer>
+
         <referenceBlock name="product.info.social" remove="true"/>
         <referenceBlock name="product.info.details" remove="true" />
         <referenceBlock name="product.info.type" remove="true" />

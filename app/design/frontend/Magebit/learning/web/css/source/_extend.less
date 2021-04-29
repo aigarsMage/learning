@@ -607,65 +607,64 @@
 
   }
 
-}
 
 
 
-// qty block
+  // custom qty block
 
-#custom-qty {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-// Counter styles. Not sure why they dont work inside the page-product-simple class
-
-.custom-counter-input-group {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: fit-content;
-
-  .custom-counter-input-group__input, .custom-counter-input-group__button {
-    border: 1px solid #C2C2C2;
-    height: 52px;
-    margin: 0;
-    padding:0;
-    text-align: center;
+  #custom-qty {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
-  .custom-counter-input-group__input {
-    width: 86px;
-    border-left: 0px;
-    border-right: 0px;
+  .custom-counter-input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
 
-    &:focus{
-      box-shadow: none;
+    .custom-counter-input-group__input, .custom-counter-input-group__button {
+      border: 1px solid #C2C2C2;
+      height: 52px;
+      margin: 0;
+      padding:0;
+      text-align: center;
+    }
+
+    .custom-counter-input-group__input {
+      width: 86px;
+      border-left: 0px;
+      border-right: 0px;
+
+      &:focus{
+        box-shadow: none;
+      }
+
+    }
+
+    .custom-counter-input-group__button,.custom-counter-input-group__addon {
+      background-color: #ffffff;
+      width: 52px;
+    }
+
+    .custom-counter-input-group__button--decrease {
+      border-radius: 2px 0px 0px 2px;
+      background-image: url('../images/decrease.svg'); // todo redefine basedir
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .custom-counter-input-group__button--increase {
+      border-radius: 0px 2px 2px 0px;
+      background-image: url('../images/increase.svg');
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
   }
-
-
-  .custom-counter-input-group__button,.custom-counter-input-group__addon {
-    background-color: #ffffff;
-    width: 52px;
-  }
-
-  .custom-counter-input-group__button--decrease {
-    border-radius: 2px 0px 0px 2px;
-    background-image: url('../images/decrease.svg'); // todo redefine basedir
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  .custom-counter-input-group__button--increase {
-    border-radius: 0px 2px 2px 0px;
-    background-image: url('../images/increase.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
 }
+
+
 
 
