@@ -119,9 +119,6 @@
 @button__active__background: @color-gray-darken1;
 
 //  Primary button
-@button-primary__background: @button-color;
-@button-primary__hover__background: darken(@button-color, 5%);
-
 @button-primary__hover__color: @color-white;
 @button-primary__active__background: @link__hover__color;
 @button-primary__active__border: 1px solid @link__hover__color;
@@ -310,7 +307,15 @@
   @icons__font-path: '@{baseDir}fonts/OpenSans-Regular';
   @icons__font-name: 'open-sans';
 
+  .action.primary.tocart, .actions-primary {
+    background-color: @button-color;
+    border: none;
+    width: 100%;
 
+    &:hover {
+      background-color: darken(@button-color, 5%);
+    }
+  }
 
   // reviews
   .action.view {
@@ -390,13 +395,12 @@
   }
 
 
-  // add to cart CTA
-  .box-tocart {
-    .action.tocart {
-      width: 100%;
-      border:none;
-    }
-  }
+  // add to cart CTA T
+  //.box-tocart {
+  //  .action.tocart {
+  //    width: 100%;
+  //  }
+  //}
 
   // custom attributes box
   .product-attribute-description {
@@ -428,6 +432,13 @@
     flex-direction: row;
     padding-left:10px;
   }
+
+  @media (max-width: 768px)  {
+    .stock-status-group {
+      flex-direction: column;
+    }
+  }
+
 
   .stock.remaining {
     padding-left:5px;
@@ -538,6 +549,62 @@
     .block-content.content {
       border-top: 1px solid #C2C2C2;
     }
+
+    .products.list.items.product-items {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    // related hover effect:
+    .product-item-info:hover {
+      box-shadow: 0px 0px 8px #00000029;
+    }
+
+    .product-item-info.related-available {
+      width: 100%;
+      min-height: 417px;
+    }
+
+
+    .item.product.product-item {
+      max-width: 224px;
+    }
+
+    .product.name.product-item-name {
+      margin:0;
+      font: normal normal 600 16px/22px Open Sans;
+    }
+
+    .product-reviews-summary.short {
+      margin: 0;
+    }
+
+    .price-box.price-final_price {
+      margin: 10px 0px;
+    }
+
+    .price {
+      font: normal normal bold 22px/30px Open Sans;
+      color:#333333;
+    }
+
+    .product.actions.product-item-actions {
+      margin: 0 0 10px;
+    }
+
+    .action.tocart.primary {
+      padding: 0;
+      height: 52px;
+      font: normal normal 600 18px/24px Open Sans;
+      display: none;
+    }
+
+    //.product-item-info:hover ~ .action.tocart.primary {
+    //  //visibility: visible;
+    //  background-color: blue;
+    //}
+
   }
 
 }
@@ -553,6 +620,7 @@
 }
 
 // Counter styles. Not sure why they dont work inside the page-product-simple class
+
 .custom-counter-input-group {
   display: flex;
   flex-direction: row;
