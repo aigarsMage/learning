@@ -1,0 +1,15 @@
+<?php
+
+$allAttributes = $block->getAdditionalData();
+$attributeData = $block->getData('viewModel');
+$finalAttributes = $attributeData->getAttributes($allAttributes);
+
+?>
+
+<ul>
+    <?php if(!empty($finalAttributes)) : ?>
+        <?php foreach ($finalAttributes as $attribute) : ?>
+                <li><strong><?=$attribute['label'];?>: </strong><?=$attribute['value'];?></li>
+        <?php endforeach; ?>
+    <?php endif;?>
+</ul>
