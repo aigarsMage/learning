@@ -10,8 +10,6 @@
         <move element="catalog.product.related" destination="content" after="product.info.media" />
         <move element="product.info.overview" destination="product.attribute.description" after="product.attribute.custom" />
 
-
-
         <referenceContainer name="product.info.main">
 
             <container name="product.attribute.description" label="Product auxiliary info" htmlTag="div" htmlClass="product-attribute-description" after="product.info.price">
@@ -26,42 +24,24 @@
                         <argument name="viewModel" xsi:type="object">Magebit\AttributesViewModel\ViewModel\AttributesViewModel</argument>
                     </arguments>
                 </block>
-
             </container>
-
         </referenceContainer>
-
-        <!--<referenceContainer name="product.info.form.content">-->
-            <!--<block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart" template="Magento_Catalog::product/view/addtocart.phtml">-->
-                <!--<block class="Magento\Catalog\Block\Product\View\Type\Simple" name="product.info.options.default.simple" template="Magento_Catalog::product/view/options/type/default.phtml"/>-->
-            <!--&lt;!&ndash;???? ka so vareja zinat? &ndash;&gt;-->
-            <!--</block>-->
-        <!--</referenceContainer>-->
 
         <referenceContainer name="product.info.form.content">
             <referenceBlock name = "product.info.addtocart">
                 <arguments>
                     <argument name="viewModel" xsi:type="object">Magebit\QuantityViewModel\ViewModel\QuantityViewModel</argument>
                 </arguments>
-                <!--<block class="Magento\Catalog\Block\Product\View\Type\Simple" name="product.info.options.default.simple" template="Magento_Catalog::product/view/options/type/default.phtml">-->
-                    <!--<arguments>-->
-                        <!--&lt;!&ndash;<argument name="css_class" xsi:type="string">product-attribute-description</argument>&ndash;&gt;-->
-                        <!--<argument name="viewModel" xsi:type="object">Magebit\QuantityViewModel\ViewModel\QuantityViewModel</argument>-->
-                    <!--</arguments>-->
-                <!--</block>-->
-                <!--ka so vareja zinat?-->
             </referenceBlock>
         </referenceContainer>
-        <!--move the stock qty-->
-        <!--<move element="product.info.options.default.simple" destination="product.info.addtocart" before="-" />-->
 
         <referenceContainer name="footer-container">
             <referenceContainer name="footer">
-                <referenceBlock class="Magento\Framework\View\Element\Html\Links" name="footer_links">
-                    <arguments>
-                        <argument name="css_class" xsi:type="string">footer links</argument>
-                    </arguments>
-                </referenceBlock>
+                <!--<referenceBlock class="Magento\Framework\View\Element\Html\Links" name="footer_links">-->
+                    <!--<arguments>-->
+                        <!--<argument name="css_class" xsi:type="string">footer links</argument>-->
+                    <!--</arguments>-->
+                <!--</referenceBlock>-->
                 <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_custom" before="footer_links" template="Magento_Catalog::footer/footer.phtml">
                     <!--<arguments>-->
                         <!--<argument name="css_class" xsi:type="string">footer links</argument>-->

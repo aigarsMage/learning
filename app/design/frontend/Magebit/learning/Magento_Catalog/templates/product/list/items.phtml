@@ -301,17 +301,3 @@ $_item = null;
             </script>
         <?php endif;?>
         <?php endif;?>
-
-<script>
-// dirty.... proper way didnt work (with config)
-    require(['jquery'], function($) {
-        $(document).ready(function () {
-            $(document).on('mouseenter', '.product-item-info', function () {
-                $(this).find(".action.tocart.primary").show();
-            }).on('mouseleave', '.product-item-info', function () {
-                $(this).find(".action.tocart.primary").hide();
-            });
-        });
-
-    });
-</script>

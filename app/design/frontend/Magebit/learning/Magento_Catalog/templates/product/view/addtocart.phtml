@@ -4,6 +4,8 @@
  * See COPYING.txt for license details.
  */
 
+echo var_dump($block->getQuantityValidators());
+
 /** @var $block \Magento\Catalog\Block\Product\View */
 ?>
 <?php $_product = $block->getProduct(); ?>
@@ -21,6 +23,7 @@ $qty = $attributeData->getQty($_product);
             <?php if ($block->shouldRenderQuantity()): ?>
                 <div class="field qty">
                     <div id="custom-qty" class="control" data-bind="scope: 'qty-counter'">
+
                         <!-- ko template: getTemplate() --><!-- /ko -->
                         <script type="text/x-magento-init">
                             {
@@ -39,7 +42,6 @@ $qty = $attributeData->getQty($_product);
                                 }
                             }
                         </script>
-
 
                         <?php if ($block->displayProductStockStatus()) :?>
                             <div class="stock-status-group">
