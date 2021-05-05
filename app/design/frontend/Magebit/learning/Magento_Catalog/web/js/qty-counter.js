@@ -5,13 +5,14 @@ define([
     'uiElement'
 ], function (ko, Element) {
     return Element.extend({
-        defaults: {
-            template: 'Magento_Catalog/input-counter'
-        },
+
+        // initialize: function () {
+        //     this._super();
+        //     this.observe(['qty']);
+        // },
 
         initObservable: function () {
-            this._super()
-                .observe('qty');
+            this._super().observe(['qty']);
 
             return this;
         },
@@ -33,9 +34,16 @@ define([
         },
 
         increaseQty: function() {
-            var qty = this.qty() + 1;
 
-            this.qty(qty);
+            if (parseInt(this.qty()) < this.stockQty) {
+                var qty = parseInt(this.qty()) + 1;
+
+                this.qty(qty);
+            }
         }
     });
 });
+
+//TODO
+// Add max selectable qty
+// add ability to enter amount manually + then use +/-

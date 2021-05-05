@@ -8,14 +8,15 @@
 
 namespace Magebit\QuantityViewModel\ViewModel;
 
+use Magento\CatalogInventory\Model\Stock\StockItemRepository;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
-use Magento\Framework\App\ObjectManager;
+//use Magento\Framework\App\ObjectManager;
 //use \Magento\InventoryApi\Api\GetSourceItemsBySkuInterface;
 
 class QuantityViewModel implements ArgumentInterface
 {
     /**
-     * @var \Magento\CatalogInventory\Model\Stock\StockItemRepository
+     * @var StockItemRepository
      */
     private $StockItemRepo;
 
@@ -26,7 +27,7 @@ class QuantityViewModel implements ArgumentInterface
      * \Magento\InventoryApi\Api\GetSourceItemsBySkuInterface, neizmantot object manager, izmantot caur constructor
      */
 
-    public function __construct(\Magento\CatalogInventory\Model\Stock\StockItemRepository $StockItemRepo) {
+    public function __construct(StockItemRepository $StockItemRepo) {
         $this->StockItemRepo = $StockItemRepo;
     }
 

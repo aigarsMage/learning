@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-echo var_dump(json_encode($block->getQuantityValidators()));
+//echo var_dump(json_encode($block->getQuantityValidators()));
 
 /** @var $block \Magento\Catalog\Block\Product\View */
 ?>
@@ -32,9 +32,11 @@ $qty = $attributeData->getQty($_product);
                                         "components": {
                                             "qty-counter": {
                                                 "component": "qty-counter",
+                                                "template": "Magento_Catalog/qty-counter",
                                                 "config": {
                                                     "qty": <?php echo $block->getProductDefaultQty() * 1 ?>,
-                                                    "dataValidate": <?php echo json_encode($block->getQuantityValidators()) ?>
+                                                    "dataValidate": <?php echo json_encode($block->getQuantityValidators()) ?>,
+                                                    "stockQty": <?php echo $qty?>
                                                 }
                                             }
                                          }
