@@ -6,18 +6,28 @@ define([
 ], function (ko, Element) {
     return Element.extend({
 
-        // initialize: function () {
-        //     this._super();
-        //     this.observe(['qty']);
-        // },
-
         initObservable: function () {
             this._super().observe(['qty']);
 
             return this;
         },
 
+        validateData: function () {
+
+            if (parseInt(this.qty()) > this.stockQty) {
+                console.log("if more than stock");
+                this.qty(this.stockQty);
+            }
+
+            if (!this.qty()) {
+                console.log("Blank");
+                this.qty(1);
+            }
+
+        },
+
         getDataValidator: function() {
+
             return JSON.stringify(this.dataValidate);
         },
 
@@ -36,6 +46,7 @@ define([
         increaseQty: function() {
 
             if (parseInt(this.qty()) < this.stockQty) {
+
                 var qty = parseInt(this.qty()) + 1;
 
                 this.qty(qty);
