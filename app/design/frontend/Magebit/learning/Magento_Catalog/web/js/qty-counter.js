@@ -19,11 +19,10 @@ define([
                 this.qty(this.stockQty);
             }
 
-            if (!this.qty()) {
-                console.log("Blank");
+            if (parseInt(this.qty()) < 0 || !this.qty()) {
+                console.log("smaller than 0 or NULL");
                 this.qty(1);
             }
-
         },
 
         getDataValidator: function() {
