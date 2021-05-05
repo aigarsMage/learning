@@ -13,7 +13,7 @@
         <referenceContainer name="product.info.main">
 
             <container name="product.attribute.description" label="Product auxiliary info" htmlTag="div" htmlClass="product-attribute-description" after="product.info.price">
-                <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attribute.custom" as="default" template="Magento_Catalog::product/view/attributes.phtml" >
+                <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attribute.custom" template="Magento_Catalog::product/view/attributes_custom.phtml" >
                     <arguments>
                         <argument name="at_call" xsi:type="string">getShortDescription</argument>
                         <argument name="at_code" xsi:type="string">short_description</argument>
@@ -28,12 +28,15 @@
         </referenceContainer>
 
         <referenceContainer name="product.info.form.content">
-            <referenceBlock name = "product.info.addtocart">
+            <referenceBlock name = "product.info.addtocart" template="Magento_Catalog::product/view/addtocart_custom.phtml">
                 <arguments>
                     <argument name="viewModel" xsi:type="object">Magebit\QuantityViewModel\ViewModel\QuantityViewModel</argument>
                 </arguments>
             </referenceBlock>
         </referenceContainer>
+
+        <referenceBlock class="Magento\Catalog\Block\Product\ProductList\Related" name="catalog.product.related" template="Magento_Catalog::product/list/items_custom.phtml"/>
+        <referenceBlock class="Magento\Catalog\Block\Product\ProductList\Upsell" name="product.info.upsell" template="Magento_Catalog::product/list/items_custom.phtml"/>
 
         <referenceContainer name="footer-container">
             <referenceContainer name="footer">
@@ -42,7 +45,7 @@
                         <!--<argument name="css_class" xsi:type="string">footer links</argument>-->
                     <!--</arguments>-->
                 <!--</referenceBlock>-->
-                <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_custom" before="footer_links" template="Magento_Catalog::footer/footer.phtml">
+                <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_custom" before="footer_links" template="Magento_Catalog::footer/footer_custom.phtml">
                     <!--<arguments>-->
                         <!--<argument name="css_class" xsi:type="string">footer links</argument>-->
                     <!--</arguments>-->

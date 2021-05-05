@@ -102,12 +102,16 @@
     width:100%;
     max-width: 560px;
     //height:148px; //to change
-    padding: 10px 20px;
+    padding: 20px 20px;
     box-sizing: border-box;
 
     .product.attribute.overview {
       font-size: 12px;
-      margin-top:0;
+      margin:0;
+
+      p {
+        margin:0;
+      }
     }
 
     ul {
@@ -128,39 +132,7 @@
 }
 
 
-// mobile. Should have started with mobile first.
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-
-  #page-product-simple {
-
-      .column.main {
-        align-items:center;
-      }
-
-      .product-info-main, .product.media {
-        width: 90% !important; //hack, dont do this at home. didnt start out mobile.
-      }
-
-      .stock-status-group {
-        flex-direction: column !important;
-        align-items: flex-start;
-        justify-content: center;
-      }
-
-    .item.product.product-item {
-      margin:0 !important;
-    }
-
-    .product-item-info.related-available {
-      min-width: 0 !important;
-    }
-
-    .block.related {
-      min-height: 0 !important;
-    }
-
-  }
-}
+@import 'product/_mobile.less';
 
 
 

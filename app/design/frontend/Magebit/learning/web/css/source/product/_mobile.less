@@ -1,0 +1,33 @@
+// mobile. Should have started with mobile first.
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+  #page-product-simple {
+
+    .column.main {
+      align-items:center;
+    }
+
+    .product-info-main, .product.media {
+      width: 90% !important; //hack, dont do this at home. didnt start out mobile.
+    }
+
+    .stock-status-group {
+      flex-direction: column !important;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .item.product.product-item {
+      margin:0 !important;
+    }
+
+    .product-item-info.related-available {
+      min-width: 0 !important;
+    }
+
+    .block.related {
+      min-height: 0 !important;
+    }
+
+  }
+}
