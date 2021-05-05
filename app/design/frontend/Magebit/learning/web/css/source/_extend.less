@@ -33,7 +33,6 @@
 
   }
 
-
   // image container width
   .product.media {
     width: 55%;
@@ -43,10 +42,12 @@
     text-align: left;
     font: normal normal 600 32px/43px Open Sans;
     letter-spacing: 0px;
+    margin-bottom: 10px;
   }
 
-
   .product-reviews-summary {
+    margin-bottom: 27px;
+
     .reviews-actions {
       font-size: 12px;
     }
@@ -61,7 +62,6 @@
   .action.view {
     margin: 0 20px 0 0;
   }
-
 
   // Add your review box
   .action.add {
@@ -79,6 +79,10 @@
     text-align: left;
   }
 
+  .price-box.price-final_price {
+    padding:0;
+  }
+
   .price {
     text-align: left;
     font: normal normal 600 32px/43px Open Sans;
@@ -88,6 +92,7 @@
 
   .product-info-price {
     border: none;
+    margin-bottom:10px;
   }
 
 
@@ -113,244 +118,13 @@
 
   }
 
+  @import 'product/_relatedProducts.less';
 
-  // IN STOCK
+  @import 'product/_stockInfo.less';
 
-  .stock-status-group {
-    display: flex;
-    flex-direction: row;
-    padding-left:20px;
-  }
+  @import 'product/_upsellProducts.less';
 
-  .stock.remaining {
-    padding-left:5px;
-  }
-
-  .stock.available {
-    color: #575757;
-    position:relative;
-
-    &::before {
-      content: "";
-      height: 8px;
-      width: 11px;
-      display: inline-block;
-      background-image: url('../images/checkmark.svg');
-      background-repeat: no-repeat;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-  }
-
-  // upsell
-
-  .block.upsell {
-
-    .block-title.title {
-      border-bottom: 1px solid #C2C2C2;
-      padding-bottom:8px;
-      margin:0;
-    }
-
-    .products.wrapper.grid.products-grid.products-upsell {
-      margin:0;
-    }
-
-    .products.list.items.product-items {
-      padding:0;
-      margin:0;
-    }
-
-    .item.product.product-item {
-      width: 100%;
-      margin-bottom:170px; //allignment hack
-
-      .product-item-info {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-
-        &:hover{
-          box-shadow: none;
-          border: 0;
-          margin: 0;
-          padding: 0;
-        }
-      }
-
-      .product.details.product-item-details {
-        padding-top: 10px;
-        padding-left:10px;
-      }
-
-      .product-item-link {
-        font: normal normal 600 16px/22px Open Sans;
-      }
-
-      .product-reviews-summary.short {
-        margin-bottom: 20px;
-      }
-
-      .price {
-        font: normal normal 600 18px/24px Open Sans;
-      }
-
-      .button-container{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        flex: 1;
-      }
-
-      .button.product-upsell-view {
-        text-decoration: none;
-        font-size:14px;
-        background-color: #333333;
-        color:white;
-        border-radius: 2px;
-        width: 109px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
-
-  // Related
-  .block.related {
-    float: right;
-    width: 100%;
-    min-height: 600px;
-
-    .block-title.title {
-      margin-bottom:20px;
-
-      #block-related-heading {
-        font: normal normal 600 24px/33px Open Sans;
-      }
-    }
-
-    .block-content.content {
-      border-top: 1px solid #C2C2C2;
-    }
-
-    .products.list.items.product-items {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    // related hover effect:
-    .product-item-info:hover {
-      box-shadow: 0px 0px 8px #00000029;
-    }
-
-    .product-item-info.related-available {
-      width: 100%;
-      min-height: 417px;
-      min-width: 224px;
-    }
-
-
-    .item.product.product-item {
-      max-width: 224px;
-    }
-
-    .product.name.product-item-name {
-      margin:0;
-      font: normal normal 600 16px/22px Open Sans;
-    }
-
-    .product-reviews-summary.short {
-      margin: 0;
-    }
-
-    .price-box.price-final_price {
-      margin: 10px 0px;
-    }
-
-    .price {
-      font: normal normal bold 22px/30px Open Sans;
-      color:#333333;
-    }
-
-    .product.actions.product-item-actions {
-      margin: 0 0 10px;
-    }
-
-    .action.tocart.primary {
-      padding: 0;
-      height: 52px;
-      font: normal normal 600 18px/24px Open Sans;
-      display: none;
-    }
-
-    .product-item-info:hover .action.tocart.primary {
-      display:block;
-    }
-
-  }
-
-  // custom qty block
-  #custom-qty {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-  }
-
-  #qty-error {
-    position: absolute;
-    top: 45px;
-    left: 0;
-  }
-
-  .custom-counter-input-group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: fit-content;
-
-    .custom-counter-input-group__input, .custom-counter-input-group__button {
-      border: 1px solid #C2C2C2;
-      height: 52px;
-      margin: 0;
-      padding:0;
-      text-align: center;
-    }
-
-    .custom-counter-input-group__input {
-      width: 86px;
-      border-left: 0px;
-      border-right: 0px;
-
-      &:focus{
-        box-shadow: none;
-      }
-
-    }
-
-    .custom-counter-input-group__button,.custom-counter-input-group__addon {
-      background-color: #ffffff;
-      width: 52px;
-    }
-
-    .custom-counter-input-group__button--decrease {
-      border-radius: 2px 0px 0px 2px;
-      background-image: url('../images/decrease.svg'); // todo redefine basedir
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-
-    .custom-counter-input-group__button--increase {
-      border-radius: 0px 2px 2px 0px;
-      background-image: url('../images/increase.svg');
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-
-  }
+  @import 'product/_qty-counter.less';
 }
 
 

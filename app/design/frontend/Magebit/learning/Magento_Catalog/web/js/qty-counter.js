@@ -48,7 +48,3 @@ define([
         }
     });
 });
-
-//TODO
-// Add max selectable qty
-// add ability to enter amount manually + then use +/-
