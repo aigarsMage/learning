@@ -25,11 +25,6 @@ define([
             }
         },
 
-        getDataValidator: function() {
-
-            return JSON.stringify(this.dataValidate);
-        },
-
         decreaseQty: function() {
             var qty;
 

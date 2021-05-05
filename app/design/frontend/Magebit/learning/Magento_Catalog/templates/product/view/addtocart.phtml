@@ -35,7 +35,6 @@ $qty = $attributeData->getQty($_product);
                                                 "template": "Magento_Catalog/qty-counter",
                                                 "config": {
                                                     "qty": <?php echo $block->getProductDefaultQty() * 1 ?>,
-                                                    "dataValidate": <?php echo json_encode($block->getQuantityValidators()) ?>,
                                                     "stockQty": <?php echo $qty?>
                                                 }
                                             }
